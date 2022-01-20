@@ -112,10 +112,10 @@ const fileFilter = (req, file, cb) => {
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 mongoose.connect(process.env.MONGODB_URL, {
-  useNewUrlParser: true,
+  /*useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-  useFindAndModify: false,
+  useFindAndModify: false,*/
 });
 const connection = mongoose.connection;
 
