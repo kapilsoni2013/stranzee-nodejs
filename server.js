@@ -12,10 +12,10 @@ const uuid = require("uuid-v4");
 const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
-const mailgun = require("mailgun-js")({
+/*const mailgun = require("mailgun-js")({
   apiKey: process.env.MAILGUN_API_KEY,
   domain: process.env.MAILGUN_DOMAIN,
-});
+});*/
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -1074,7 +1074,6 @@ connection.once("open", () => {
             resetLink: link,
           });
 
-          /* 
           // For gmail
           const mailOptions = {
             from: `${process.env.APP_NAME} <${process.env.GMAIL}>`, // Something like: Jane Doe <janedoe@gmail.com>
@@ -1096,9 +1095,9 @@ connection.once("open", () => {
                 emailSent: true,
               });
             }
-          }); */
+          });
 
-          // For Mailgun
+         /* // For Mailgun
           const data = {
             from: `${process.env.APP_NAME} <${process.env.MAILGUN_EMAIL}>`,
             to: req.query.email,
@@ -1120,7 +1119,7 @@ connection.once("open", () => {
                 emailSent: true,
               });
             }
-          });
+          });*/
 
         } else {
           res.status(200).json({
@@ -1597,7 +1596,7 @@ process.on("uncaughtException", (err) => {
 });
 
 server.listen(process.env.PORT || 3000, () => {
-  console.log("Server started at port 3000...");
+  console.log("Server started at port ..."+process.env.PORT);
 });
 
 /* app.listen(process.env.PORT || 3000, () => {
