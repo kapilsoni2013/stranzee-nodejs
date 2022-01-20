@@ -111,12 +111,7 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 
-mongoose.connect(process.env.MONGODB_URL, {
-  /*useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,*/
-});
+mongoose.connect(process.env.MONGODB_URL);
 const connection = mongoose.connection;
 
 /* app.get("/bro", (req, res) => {
